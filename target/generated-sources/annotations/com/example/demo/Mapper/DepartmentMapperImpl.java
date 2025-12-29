@@ -1,0 +1,13 @@
+package com.example.demo.Mapper;
+
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2025-12-27T16:19:03+0700",
+    comments = "version: 1.6.3, compiler: javac, environment: Java 24.0.1 (Oracle Corporation)"
+)
+@Component
+public class DepartmentMapperImpl implements DepartmentMapper {
+}
