@@ -96,12 +96,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employees;
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public Employees saveEmployee(CreateEmployeeRequest employees) {
 		Employees empMapping = employeeMapper.empMapping(employees);
 		EmployeeDetails details = empDetailRepository.save(empMapping.getDetails());
-		empMapping.setDetails(details);
+		//empMapping.setDetails(details);
 		employeeRepository.save(empMapping);
 		return empMapping;
 	}
+
 }

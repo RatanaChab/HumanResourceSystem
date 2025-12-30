@@ -6,9 +6,11 @@ import com.example.demo.Employee.Employees;
 import com.example.demo.EmployeeDetail.EmployeeDetails;
 import com.example.demo.Exception.HttpResponse.ApiResponse;
 import com.example.demo.Employee.DTO.addUserEmp;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(originPatterns = "http://localhost:3000/", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
@@ -32,21 +34,11 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/RequestEmployee")
-	public ResponseEntity<?> EmployeeRequest(@RequestBody CreateEmployeeRequest employees) {
+	public ResponseEntity<?> EmployeeRequest(@RequestBody @Valid CreateEmployeeRequest employees) {
 		ApiResponse<Object> response = new ApiResponse<Object>(
 				HttpStatus.OK.toString(),
 				SUCCESS,
 				employeeService.saveEmployee(employees),
-				null);
-		return ResponseEntity.ok(response);
-	}
-
-	@PostMapping("/employee/detail")
-	public ResponseEntity<?> create(@RequestBody EmployeeDetails employees) {
-		ApiResponse<Object> response = new ApiResponse<>(
-				HttpStatus.OK.toString(),
-				SUCCESS,
-				employeeService.createEmployeeDetail(employees),
 				null);
 		return ResponseEntity.ok(response);
 	}

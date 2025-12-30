@@ -17,6 +17,7 @@ public class EmployeeDetails {
 	private String workExp;
 	private String Identity;
 	private String IdentityType;
+	private String national;
 	private String bankName;
 	private String bankCode;
 	private LocalDate birthDate;

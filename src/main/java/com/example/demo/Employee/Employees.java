@@ -4,12 +4,10 @@ import com.example.demo.Department.Departments;
 import com.example.demo.EmployeeDetail.EmployeeDetails;
 import com.example.demo.Enum.JoinType;
 import com.example.demo.Enum.SexEnum;
-import com.example.demo.OrgUnit.OrgaUnit;
+import com.example.demo.OrgUnit.Organizations;
 import com.example.demo.Position.Positions;
-import com.example.demo.User.UserEntity;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.type.YesNoConverter;
 
 import java.time.LocalDate;
 
@@ -34,7 +32,7 @@ public class Employees {
 	@Column(length = 20)
 	private String phone;
 	@Convert(converter = org.hibernate.type.YesNoConverter.class)
-	private Boolean active;
+	private Boolean active = true;
 	@ManyToOne
 	@JoinColumn(name = "position_id")
 	private Positions position;
@@ -43,7 +41,7 @@ public class Employees {
 	private Departments department;
 	@ManyToOne
 	@JoinColumn(name = "org_id")
-	private OrgaUnit orgUnit;
+	private Organizations orgUnit;
 	@OneToOne
 	@JoinColumn(name = "emp_detail")
 	private EmployeeDetails details;
