@@ -1,6 +1,7 @@
 package com.example.demo.AnnualLeave;
 
 import com.example.demo.Employee.Employees;
+import com.example.demo.Enum.ActiveEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,5 +27,6 @@ public class AnnualEntity {
 	private Float leaveBalance;
 	@Column(nullable = false, scale = 3)
 	private Integer leaveApply;
-	private String leaveType;
+	@Enumerated(EnumType.STRING)
+	private ActiveEnum active;
 }

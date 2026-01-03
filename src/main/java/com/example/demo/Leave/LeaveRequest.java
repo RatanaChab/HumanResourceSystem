@@ -23,7 +23,7 @@ public class LeaveRequest {
 	@Enumerated(EnumType.STRING)
 	private ProcessStatus status;
 	private Integer currentStep;
-	private Long flowId;
+	private Long approvalFlow;
 	@CreatedDate
 	private LocalDateTime createDate;
 
